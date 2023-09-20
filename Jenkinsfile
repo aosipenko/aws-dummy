@@ -7,8 +7,9 @@ pipeline {
                 withMaven(
                         maven: 'default',
                         mavenLocalRepo: '.repository'
-                )
-                sh "mvn clean install"
+                ) {
+                    sh "mvn clean install"
+                }
             }
         }
         stage('Test') {
