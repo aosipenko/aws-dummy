@@ -5,8 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 withMaven(
-                        maven: 'default',
-                        mavenLocalRepo: '.repository'
+                        maven: 'default'
                 ) {
                     sh "mvn clean install"
                 }
