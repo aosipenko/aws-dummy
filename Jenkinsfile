@@ -4,6 +4,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                withMaven(
+                        maven: 'default',
+                        mavenLocalRepo: '.repository'
+                )
                 sh "mvn clean install"
             }
         }
