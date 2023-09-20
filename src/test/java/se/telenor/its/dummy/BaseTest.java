@@ -1,4 +1,4 @@
-package se.telnor.its.dummy;
+package se.telenor.its.dummy;
 
 import io.restassured.RestAssured;
 import org.testng.annotations.Test;
