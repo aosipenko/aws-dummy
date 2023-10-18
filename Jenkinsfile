@@ -1,5 +1,9 @@
 import groovy.json.JsonSlurper
 
+def env
+def deploymentBatch
+def deployAllowed = true
+
 pipeline {
     agent any
     parameters {
@@ -10,16 +14,32 @@ pipeline {
         stage('Example') {
             steps {
                 script {
-                    def setupJson = "${params.DEPLOYMENT_SETUP}"
-                    def env = "${params.ENV}"
-                    def jsonObj = new JsonSlurper().parseText(setupJson)
+                    env = "${params.ENV}"
+                    deploymentBatch = new JsonSlurper().parseText("${params.DEPLOYMENT_SETUP}")
 
-                    jsonObj.artifact.each {
+                    echo 'Selected env: ' + env
+
+                    deploymentBatch.artifact.each {
                         artifact ->
-                            echo 'processing artifact ' + artifact
+                            {
+                                echo 'Retrieving versions from AWS...'
+                                def versions = ['1.2.1-RELEASE', '2.4.25-RELEASE', '1.3.1-RELEASE', '1.3.1-HOTFIX']
+                                echo 'Requested artifact deployemnt ' + artifact.name + ' : ' + artifact.version
+                                if (versions.contains(artifact.version)) {
+                                    echo 'Deployment allowed for ' + artifact.name + ' : ' + artifact.version
+                                } else {
+                                    echo 'Could not find ' + artifact.name + ' : ' + artifact.version + ' in ECS. Check your deployment setup'
+                                    deployAllowed = false;
+                                }
+                            }
+                    }
+
+                    if (deployAllowed) {
+                        echo 'All checks passed, deployment approved'
+                    } else {
+                        echo 'Suggested confid is not viable. Check log for details.'
                     }
                 }
-                echo "Deployment json: ${params.CHOICE}"
             }
         }
         stage('Setup ECS') {
