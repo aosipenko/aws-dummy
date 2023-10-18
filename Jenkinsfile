@@ -35,7 +35,7 @@ pipeline {
                     if (deployAllowed) {
                         echo 'All checks passed, deployment approved'
                     } else {
-                        echo 'Suggested confid is not viable. Check log for details.'
+                        echo 'Suggested config is not viable. Check log for details.'
                     }
                 }
             }

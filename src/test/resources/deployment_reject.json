@@ -1,0 +1,7 @@
+{
+  "artifact": [
+    {"name":  "dummy-app-1", "version" : "1.2.1-RELEASE"},
+    {"name":  "dummy-app-2", "version" : "1.3.1-HOTFIX"},
+    {"name":  "dummy-app-3", "version" : "2.5.0-RELEASE"}
+  ]
+}
