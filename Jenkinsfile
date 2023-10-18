@@ -8,14 +8,14 @@ pipeline {
         stage('Example') {
             def setupJson = "${params.DEPLOYMENT_SETUP}"
             def env = "${params.ENV}"
-            def jsonObj = readJSON text: setupJson
+            def jsonObj = new JsonSlurper().parseText(setupJson)
             steps {
                 jsonObj.artifact.each {
                     artifact ->
                         echo 'processing artifact ' + artifact
                 }
                 echo "Deployment json: ${params.CHOICE}"
-                echo "Selected env: ${params.ENV}"
+                echo "Selected env: " + env
             }
         }
         stage('Setup ECS') {
