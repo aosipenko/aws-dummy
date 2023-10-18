@@ -52,3 +52,7 @@ pipeline {
         }
     }
 }
+
+env = null
+deploymentBatch = null
+deployAllowed = null
