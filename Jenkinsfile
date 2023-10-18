@@ -1,4 +1,4 @@
-import groovy.json.JsonSlurper
+import groovy.json.JsonSlurperClassic
 
 def env
 def deploymentBatch
@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                     env = "${params.ENV}"
-                    deploymentBatch = new JsonSlurper().parseText("${params.DEPLOYMENT_SETUP}")
+                    deploymentBatch = new JsonSlurperClassic().parseText("${params.DEPLOYMENT_SETUP}")
 
                     echo 'Selected env: ' + env
 
