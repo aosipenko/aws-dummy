@@ -1,20 +1,21 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-        text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
-        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
-        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
-        password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
+        text(name: 'DEPLOYMENT_SETUP', defaultValue: '{}', description: 'Input JSON with services and versions you want to deploy')
+        choice(name: 'ENV', choices: ['SIT', 'SAT'], description: 'PIck environment to which you want to deploy')
     }
     stages {
         stage('Example') {
+            def setupJson = $ { params.DEPLOYMENT_SETUP }
+            def env = $ { params.ENV }
+            def jsonObj = readJSON text: setupJson
             steps {
-                echo "Hello ${params.PERSON}"
-                echo "Biography: ${params.BIOGRAPHY}"
-                echo "Toggle: ${params.TOGGLE}"
-                echo "Choice: ${params.CHOICE}"
-                echo "Password: ${params.PASSWORD}"
+                jsonObj.artifact.each {
+                    artifact ->
+                        echo 'processing artifact ' + artifact
+                }
+                echo "Deployment json: ${params.CHOICE}"
+                echo "Selected env: ${params.ENV}"
             }
         }
         stage('Setup ECS') {
