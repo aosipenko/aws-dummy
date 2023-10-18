@@ -21,16 +21,14 @@ pipeline {
 
                     deploymentBatch.artifact.each {
                         artifact ->
-                            {
-                                echo 'Retrieving versions from AWS...'
-                                def versions = ['1.2.1-RELEASE', '2.4.25-RELEASE', '1.3.1-RELEASE', '1.3.1-HOTFIX']
-                                echo 'Requested artifact deployemnt ' + artifact.name + ' : ' + artifact.version
-                                if (versions.contains(artifact.version)) {
-                                    echo 'Deployment allowed for ' + artifact.name + ' : ' + artifact.version
-                                } else {
-                                    echo 'Could not find ' + artifact.name + ' : ' + artifact.version + ' in ECS. Check your deployment setup'
-                                    deployAllowed = false;
-                                }
+                            echo 'Retrieving versions from AWS...'
+                            def versions = ['1.2.1-RELEASE', '2.4.25-RELEASE', '1.3.1-RELEASE', '1.3.1-HOTFIX']
+                            echo 'Requested artifact deployemnt ' + artifact.name + ' : ' + artifact.version
+                            if (versions.contains(artifact.version)) {
+                                echo 'Deployment allowed for ' + artifact.name + ' : ' + artifact.version
+                            } else {
+                                echo 'Could not find ' + artifact.name + ' : ' + artifact.version + ' in ECS. Check your deployment setup'
+                                deployAllowed = false;
                             }
                     }
 
