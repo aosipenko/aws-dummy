@@ -6,8 +6,8 @@ pipeline {
     }
     stages {
         stage('Example') {
-            def setupJson = $ { params.DEPLOYMENT_SETUP }
-            def env = $ { params.ENV }
+            def setupJson = "${params.DEPLOYMENT_SETUP}"
+            def env = "${params.ENV}"
             def jsonObj = readJSON text: setupJson
             steps {
                 jsonObj.artifact.each {
