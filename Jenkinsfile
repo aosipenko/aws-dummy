@@ -8,17 +8,17 @@ pipeline {
     }
     stages {
         stage('Example') {
-            script {
-                def setupJson = "${params.DEPLOYMENT_SETUP}"
-                def env = "${params.ENV}"
-                def jsonObj = new JsonSlurper().parseText(setupJson)
-
-                jsonObj.artifact.each {
-                    artifact ->
-                        echo 'processing artifact ' + artifact
-                }
-            }
             steps {
+                script {
+                    def setupJson = "${params.DEPLOYMENT_SETUP}"
+                    def env = "${params.ENV}"
+                    def jsonObj = new JsonSlurper().parseText(setupJson)
+
+                    jsonObj.artifact.each {
+                        artifact ->
+                            echo 'processing artifact ' + artifact
+                    }
+                }
                 echo "Deployment json: ${params.CHOICE}"
             }
         }
