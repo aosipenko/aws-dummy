@@ -58,9 +58,14 @@ pipeline {
         }
         stage('Run tests') {
             steps {
-                withMaven(maven: 'default') {
-                    sh 'mvn clean test'
+                catchError {
+                    withMaven(maven: 'default') {
+                        sh 'mvn clean test'
+                    }
                 }
+                echo '>>>>>>>>>>>>>>>>>>>>>>>>>>'
+                echo currentBuild.result
+                echo '<<<<<<<<<<<<<<<<<<<<<<<<<<'
             }
             post {
                 always {
