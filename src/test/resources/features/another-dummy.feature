@@ -1,3 +1,4 @@
+@severity=blocker
 Feature: test pipeline
 
   Scenario: test random stuff 4
