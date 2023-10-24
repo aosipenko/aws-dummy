@@ -81,6 +81,7 @@ pipeline {
                         error('Abort deployment due to test failures')
                     } else {
                         echo 'Deploying....'
+                        currentBuild.result = 'SUCCESS'
                     }
                 }
             }
