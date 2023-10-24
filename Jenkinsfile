@@ -64,7 +64,7 @@ pipeline {
                         sh 'mvn clean test'
                     }
                 }
-                testStage = currentBuild.result
+                script { testStage = currentBuild.result }
             }
             post {
                 always {
