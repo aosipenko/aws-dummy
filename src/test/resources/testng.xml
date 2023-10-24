@@ -2,8 +2,8 @@
 
 <suite name="Suite1" verbose="1">
     <test name="Regression1">
-        <packages>
-            <package name="se.telenor.its"/>
-        </packages>
+        <classes>
+            <class name="se.telenor.its.CucumberTestRunner"/>
+        </classes>
     </test>
 </suite>

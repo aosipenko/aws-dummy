@@ -1,15 +1,18 @@
 package se.telenor.its.dummy;
 
-import io.restassured.RestAssured;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static org.hamcrest.core.Is.is;
+import java.util.Random;
 
 public class BaseTest {
 
 
     @Test
     public void testSmth() {
-        RestAssured.get("http://10.82.8.68:8080/dummy/its/get").then().body(is("Dummy updated OK"));
+        Random r = new Random();
+        int rand = r.nextInt(10);
+        System.out.println(rand);
+        Assert.assertEquals(rand % 2, 0);
     }
 }

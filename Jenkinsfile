@@ -11,7 +11,7 @@ pipeline {
         choice(name: 'ENV', choices: ['SIT', 'SAT'], description: 'Pick environment to which you want to deploy')
     }
     stages {
-        stage('Example') {
+        stage('Validate artifacts') {
             steps {
                 script {
                     env = "${params.ENV}"
@@ -40,12 +40,32 @@ pipeline {
                 }
             }
         }
-        stage('Setup ECS') {
+        stage('Update ECS') {
             steps {
-                echo 'picking ecs'
+                script {
+                    if (deployAllowed) {
+                        deploymentBatch.artifact.each {
+                            artifact ->
+                                echo 'Restarting service ' + artifact.name + ' : ' + artifact.version
+                                echo "aws ecs update-service --cluster dummy-cluster --service $artifact.service --task-definition $artifact.name --platform-version $artifact.version --desired-count 1"
+                        }
+                        //TODO: add wait for restart ended?
+                    } else {
+                        echo('Skip deployment due to previous failures')
+                    }
+                }
             }
         }
-        stage('Deploy') {
+        stage('Run tests') {
+            steps {
+                withMaven(
+                        maven: 'default'
+                ) {
+                    sh 'mvn clean install'
+                }
+            }
+        }
+        stage('Deploy to selected env if tests are fine') {
             steps {
                 echo 'Deploying....'
             }
