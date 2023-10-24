@@ -58,10 +58,15 @@ pipeline {
         }
         stage('Run tests') {
             steps {
-                withMaven(
-                        maven: 'default'
-                ) {
-                    sh 'mvn clean install'
+                withMaven(maven: 'default') {
+                    sh 'mvn clean test'
+                }
+            }
+            post {
+                always {
+                    cucumber buildStatus: "UNSTABLE",
+                            fileIncludePattern: "**/Cucumber.json",
+                            jsonReportDirectory: 'target'
                 }
             }
         }
