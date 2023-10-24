@@ -24,6 +24,8 @@ public class DummySteps {
 
     @Then("step sometimes fails")
     public void failAtRandom() {
-        Assert.assertTrue(RANDOM.nextInt(100) > 1);
+        int r = RANDOM.nextInt(100);
+        System.out.println(">>>>>>>>>> " + r);
+        Assert.assertTrue(r > 1);
     }
 }
