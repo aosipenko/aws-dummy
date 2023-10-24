@@ -3,7 +3,7 @@ import groovy.json.JsonSlurperClassic
 def env
 def deploymentBatch
 def deployAllowed = true
-def testStage
+def testResult
 
 pipeline {
     agent any
@@ -64,21 +64,25 @@ pipeline {
                         sh 'mvn clean test'
                     }
                 }
-                script { testStage = currentBuild.result }
+                script {
+                    testResult = currentBuild.result
+                }
             }
             post {
                 always {
-                    cucumber buildStatus: "UNSTABLE",
-                            fileIncludePattern: "**/Cucumber.json",
-                            jsonReportDirectory: 'target'
-                    echo 'try to generate allure stuff...'
                     allure includeProperties: false, jdk: '', results: [[path: '**/allure-results']]
                 }
             }
         }
-        stage('Deploy to selected env if tests are fine') {
+        stage('Deployment') {
             steps {
-                echo 'Deploying....'
+                script {
+                    if ('FAILURE'.equalsIgnoreCase(testResult)) {
+                        error('Abort deployment due to test failures')
+                    } else {
+                        echo 'Deploying....'
+                    }
+                }
             }
         }
     }
