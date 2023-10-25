@@ -8,10 +8,33 @@ def testResult
 pipeline {
     agent any
     parameters {
+        text(name: 'REPOSITORIES', defaultValue: '{}', description: 'REPOS JSON')
+        text(name: 'LOGS', defaultValue: '{}', description: 'LOGS JSON')
         text(name: 'DEPLOYMENT_SETUP', defaultValue: '{}', description: 'Input JSON with services and versions you want to deploy')
         choice(name: 'ENV', choices: ['SIT', 'SAT'], description: 'Pick environment to which you want to deploy')
     }
     stages {
+        stage('Test AWS stuff'){
+            steps{
+                script{
+                    def reposJson = new JsonSlurperClassic().parseText("${params.REPOSITORIES}")
+                    def logsJson = new JsonSlurperClassic().parseText("${params.LOGS}")
+
+                    reposJson.repositories.each {
+                        repo ->
+                            echo 'Name:' + repo.repositoryName
+                    }
+
+                    logsJson.services.each {
+                        service ->
+                            echo 'Name: ' + service.serviceName
+                            echo 'Rolout: ' + service.deployments.rolloutState
+                            echo 'Done at: ' + service.events[0].createdAt
+
+                    }
+                }
+            }
+        }
         stage('Validate artifacts') {
             steps {
                 script {

@@ -1,0 +1,186 @@
+{
+  "repositories": [
+    {
+      "repositoryArn": "arn:aws:ecr:eu-north-1:186768347586:repository/its-wiremock",
+      "registryId": "186768347586",
+      "repositoryName": "its-wiremock",
+      "repositoryUri": "186768347586.dkr.ecr.eu-north-1.amazonaws.com/its-wiremock",
+      "createdAt": "2023-09-05T11:04:39+02:00",
+      "imageTagMutability": "MUTABLE",
+      "imageScanningConfiguration": {
+        "scanOnPush": true
+      },
+      "encryptionConfiguration": {
+        "encryptionType": "AES256"
+      }
+    },
+    {
+      "repositoryArn": "arn:aws:ecr:eu-north-1:186768347586:repository/resource-porting-handler",
+      "registryId": "186768347586",
+      "repositoryName": "resource-porting-handler",
+      "repositoryUri": "186768347586.dkr.ecr.eu-north-1.amazonaws.com/resource-porting-handler",
+      "createdAt": "2023-08-04T18:01:58+02:00",
+      "imageTagMutability": "MUTABLE",
+      "imageScanningConfiguration": {
+        "scanOnPush": false
+      },
+      "encryptionConfiguration": {
+        "encryptionType": "AES256"
+      }
+    },
+    {
+      "repositoryArn": "arn:aws:ecr:eu-north-1:186768347586:repository/rat-wiremock",
+      "registryId": "186768347586",
+      "repositoryName": "rat-wiremock",
+      "repositoryUri": "186768347586.dkr.ecr.eu-north-1.amazonaws.com/rat-wiremock",
+      "createdAt": "2023-08-04T06:54:57+02:00",
+      "imageTagMutability": "MUTABLE",
+      "imageScanningConfiguration": {
+        "scanOnPush": false
+      },
+      "encryptionConfiguration": {
+        "encryptionType": "AES256"
+      }
+    },
+    {
+      "repositoryArn": "arn:aws:ecr:eu-north-1:186768347586:repository/aws-docker-rabbitmq-8080",
+      "registryId": "186768347586",
+      "repositoryName": "aws-docker-rabbitmq-8080",
+      "repositoryUri": "186768347586.dkr.ecr.eu-north-1.amazonaws.com/aws-docker-rabbitmq-8080",
+      "createdAt": "2023-06-28T14:07:45+02:00",
+      "imageTagMutability": "MUTABLE",
+      "imageScanningConfiguration": {
+        "scanOnPush": false
+      },
+      "encryptionConfiguration": {
+        "encryptionType": "AES256"
+      }
+    },
+    {
+      "repositoryArn": "arn:aws:ecr:eu-north-1:186768347586:repository/cdk-hnb659fds-container-assets-186768347586-eu-north-1",
+      "registryId": "186768347586",
+      "repositoryName": "cdk-hnb659fds-container-assets-186768347586-eu-north-1",
+      "repositoryUri": "186768347586.dkr.ecr.eu-north-1.amazonaws.com/cdk-hnb659fds-container-assets-186768347586-eu-north-1",
+      "createdAt": "2023-08-11T11:48:24+02:00",
+      "imageTagMutability": "IMMUTABLE",
+      "imageScanningConfiguration": {
+        "scanOnPush": false
+      },
+      "encryptionConfiguration": {
+        "encryptionType": "AES256"
+      }
+    },
+    {
+      "repositoryArn": "arn:aws:ecr:eu-north-1:186768347586:repository/its-dummy",
+      "registryId": "186768347586",
+      "repositoryName": "its-dummy",
+      "repositoryUri": "186768347586.dkr.ecr.eu-north-1.amazonaws.com/its-dummy",
+      "createdAt": "2023-09-20T10:48:53+02:00",
+      "imageTagMutability": "MUTABLE",
+      "imageScanningConfiguration": {
+        "scanOnPush": true
+      },
+      "encryptionConfiguration": {
+        "encryptionType": "AES256"
+      }
+    },
+    {
+      "repositoryArn": "arn:aws:ecr:eu-north-1:186768347586:repository/usage-consumption-management",
+      "registryId": "186768347586",
+      "repositoryName": "usage-consumption-management",
+      "repositoryUri": "186768347586.dkr.ecr.eu-north-1.amazonaws.com/usage-consumption-management",
+      "createdAt": "2023-08-04T09:25:50+02:00",
+      "imageTagMutability": "MUTABLE",
+      "imageScanningConfiguration": {
+        "scanOnPush": false
+      },
+      "encryptionConfiguration": {
+        "encryptionType": "AES256"
+      }
+    },
+    {
+      "repositoryArn": "arn:aws:ecr:eu-north-1:186768347586:repository/resource-pool-management",
+      "registryId": "186768347586",
+      "repositoryName": "resource-pool-management",
+      "repositoryUri": "186768347586.dkr.ecr.eu-north-1.amazonaws.com/resource-pool-management",
+      "createdAt": "2023-08-04T12:30:41+02:00",
+      "imageTagMutability": "MUTABLE",
+      "imageScanningConfiguration": {
+        "scanOnPush": false
+      },
+      "encryptionConfiguration": {
+        "encryptionType": "AES256"
+      }
+    },
+    {
+      "repositoryArn": "arn:aws:ecr:eu-north-1:186768347586:repository/resource-inventory-management",
+      "registryId": "186768347586",
+      "repositoryName": "resource-inventory-management",
+      "repositoryUri": "186768347586.dkr.ecr.eu-north-1.amazonaws.com/resource-inventory-management",
+      "createdAt": "2023-06-30T15:20:18+02:00",
+      "imageTagMutability": "MUTABLE",
+      "imageScanningConfiguration": {
+        "scanOnPush": false
+      },
+      "encryptionConfiguration": {
+        "encryptionType": "AES256"
+      }
+    },
+    {
+      "repositoryArn": "arn:aws:ecr:eu-north-1:186768347586:repository/resource-catalog-management",
+      "registryId": "186768347586",
+      "repositoryName": "resource-catalog-management",
+      "repositoryUri": "186768347586.dkr.ecr.eu-north-1.amazonaws.com/resource-catalog-management",
+      "createdAt": "2023-06-29T09:33:59+02:00",
+      "imageTagMutability": "MUTABLE",
+      "imageScanningConfiguration": {
+        "scanOnPush": false
+      },
+      "encryptionConfiguration": {
+        "encryptionType": "AES256"
+      }
+    },
+    {
+      "repositoryArn": "arn:aws:ecr:eu-north-1:186768347586:repository/resource-order-engine",
+      "registryId": "186768347586",
+      "repositoryName": "resource-order-engine",
+      "repositoryUri": "186768347586.dkr.ecr.eu-north-1.amazonaws.com/resource-order-engine",
+      "createdAt": "2023-08-04T17:01:11+02:00",
+      "imageTagMutability": "MUTABLE",
+      "imageScanningConfiguration": {
+        "scanOnPush": false
+      },
+      "encryptionConfiguration": {
+        "encryptionType": "AES256"
+      }
+    },
+    {
+      "repositoryArn": "arn:aws:ecr:eu-north-1:186768347586:repository/resource-order-management",
+      "registryId": "186768347586",
+      "repositoryName": "resource-order-management",
+      "repositoryUri": "186768347586.dkr.ecr.eu-north-1.amazonaws.com/resource-order-management",
+      "createdAt": "2023-08-04T16:36:16+02:00",
+      "imageTagMutability": "MUTABLE",
+      "imageScanningConfiguration": {
+        "scanOnPush": false
+      },
+      "encryptionConfiguration": {
+        "encryptionType": "AES256"
+      }
+    },
+    {
+      "repositoryArn": "arn:aws:ecr:eu-north-1:186768347586:repository/hello-on-port80-repository",
+      "registryId": "186768347586",
+      "repositoryName": "hello-on-port80-repository",
+      "repositoryUri": "186768347586.dkr.ecr.eu-north-1.amazonaws.com/hello-on-port80-repository",
+      "createdAt": "2023-06-14T10:59:06+02:00",
+      "imageTagMutability": "MUTABLE",
+      "imageScanningConfiguration": {
+        "scanOnPush": false
+      },
+      "encryptionConfiguration": {
+        "encryptionType": "AES256"
+      }
+    }
+  ]
+}
